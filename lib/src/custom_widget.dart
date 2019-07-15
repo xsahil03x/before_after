@@ -2,27 +2,31 @@ import 'package:before_after/src/rect_clipper.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-class CustomWidget extends StatefulWidget {
+class BeforeAfter extends StatefulWidget {
   final Widget beforeImage;
   final Widget afterImage;
   final double imageHeight;
   final double imageWidth;
   final bool isVertical;
+  final Color thumbColor;
+  final double thumbRadius;
 
-  const CustomWidget({
+  const BeforeAfter({
     Key key,
     this.beforeImage,
     this.afterImage,
     this.imageHeight,
     this.imageWidth,
     this.isVertical = false,
+    this.thumbColor = Colors.white,
+    this.thumbRadius = 16.0,
   }) : super(key: key);
 
   @override
-  _CustomWidgetState createState() => _CustomWidgetState();
+  _BeforeAfterState createState() => _BeforeAfterState();
 }
 
-class _CustomWidgetState extends State<CustomWidget> {
+class _BeforeAfterState extends State<BeforeAfter> {
   double _clipFactor = 0.5;
 
   @override
@@ -51,7 +55,8 @@ class _CustomWidgetState extends State<CustomWidget> {
             angle: widget.isVertical ? math.pi / 2 : 0.0,
             child: SliderTheme(
               data: SliderThemeData(
-                thumbShape: CustomThumbShape(),
+                thumbShape:
+                    CustomThumbShape(widget.thumbRadius, widget.thumbColor),
                 activeTrackColor: Colors.transparent,
                 inactiveTrackColor: Colors.transparent,
               ),
@@ -86,13 +91,14 @@ class SizedImage extends StatelessWidget {
 }
 
 class CustomThumbShape extends SliderComponentShape {
-  final double thumbRadius;
+  final double _thumbRadius;
+  final Color _thumbColor;
 
-  CustomThumbShape({this.thumbRadius = 8.0});
+  CustomThumbShape(this._thumbRadius, this._thumbColor);
 
   @override
   Size getPreferredSize(bool isEnabled, bool isDiscrete) {
-    return Size.fromRadius(thumbRadius);
+    return Size.fromRadius(_thumbRadius);
   }
 
   @override
@@ -110,24 +116,24 @@ class CustomThumbShape extends SliderComponentShape {
     final Paint paint = new Paint()
       ..isAntiAlias = true
       ..strokeWidth = 4.0
-      ..color = Colors.white
+      ..color = _thumbColor
       ..style = PaintingStyle.fill;
 
     final Paint paintStroke = new Paint()
       ..isAntiAlias = true
       ..strokeWidth = 2.0
-      ..color = Colors.white
+      ..color = _thumbColor
       ..style = PaintingStyle.stroke;
 
     canvas.drawCircle(
       center,
-      16.0,
+      _thumbRadius,
       paintStroke,
     );
 
     canvas.drawCircle(
       center,
-      12.0,
+      _thumbRadius - 4,
       paint,
     );
 
