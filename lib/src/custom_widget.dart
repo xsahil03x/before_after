@@ -35,17 +35,23 @@ class _BeforeAfterState extends State<BeforeAfter> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        SizedImage(
-          widget.afterImage,
-          widget.imageHeight ?? null,
-          widget.imageWidth,
-        ),
-        ClipPath(
-          clipper: RectClipper(_clipFactor, widget.isVertical),
+        Padding(
+          padding: const EdgeInsets.all(24.0),
           child: SizedImage(
-            widget.beforeImage,
+            widget.afterImage,
             widget.imageHeight,
             widget.imageWidth,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: ClipPath(
+            clipper: RectClipper(_clipFactor, widget.isVertical),
+            child: SizedImage(
+              widget.beforeImage,
+              widget.imageHeight,
+              widget.imageWidth,
+            ),
           ),
         ),
         Positioned(
@@ -115,15 +121,15 @@ class CustomThumbShape extends SliderComponentShape {
       double value}) {
     final Canvas canvas = context.canvas;
 
-    final Paint paint = new Paint()
+    final Paint paint = Paint()
       ..isAntiAlias = true
       ..strokeWidth = 4.0
       ..color = _thumbColor
       ..style = PaintingStyle.fill;
 
-    final Paint paintStroke = new Paint()
+    final Paint paintStroke = Paint()
       ..isAntiAlias = true
-      ..strokeWidth = 2.0
+      ..strokeWidth = 4.0
       ..color = _thumbColor
       ..style = PaintingStyle.stroke;
 
@@ -135,13 +141,13 @@ class CustomThumbShape extends SliderComponentShape {
 
     canvas.drawCircle(
       center,
-      _thumbRadius - 4,
+      _thumbRadius - 6,
       paint,
     );
 
     canvas.drawRect(
         Rect.fromCenter(
-            center: center, width: 2.0, height: parentBox.size.height),
+            center: center, width: 4.0, height: parentBox.size.height),
         paint);
   }
 }
