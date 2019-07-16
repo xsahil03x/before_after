@@ -1,6 +1,5 @@
 import 'package:before_after/src/rect_clipper.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 class BeforeAfter extends StatefulWidget {
   final Widget beforeImage;
