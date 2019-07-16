@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ),
       home: MyHomePage(),
     );
@@ -20,22 +20,16 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: Text('Before After')),
-      body: Center(
-        child: BeforeAfter(
-          imageHeight: size.height * 0.6,
-          imageWidth: size.width,
-          beforeImage: Image.asset(
-            'assets/before.jpg',
-            fit: BoxFit.cover,
+      appBar: AppBar(title: Text('Before After'), centerTitle: true),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          BeforeAfter(
+            beforeImage: Image.asset('assets/after.jpg'),
+            afterImage: Image.asset('assets/before.jpg'),
           ),
-          afterImage: Image.asset(
-            'assets/after.jpg',
-            fit: BoxFit.cover,
-          ),
-        ),
+        ],
       ),
     );
   }
