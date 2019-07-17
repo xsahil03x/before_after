@@ -1,5 +1,9 @@
 # 👏 Before After
 
+<p align="center"> 
+<img src="https://user-images.githubusercontent.com/25670178/61337576-978f1780-a853-11e9-9249-3637d0861ebb.gif">
+</p>
+
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/xsahil03x) [![Twitter](https://img.shields.io/twitter/url/https/github.com/xsahil03x/giffy_dialog.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fxsahil03x%2Fgiffy_dialog)
 
 <p>A flutter package which makes it easier to display the differences between two images..</p>
@@ -15,6 +19,13 @@ The source code is **100% Dart**, and everything resides in the [/lib](https://g
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/MIT)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/xsahil03x/before_after/blob/master/LICENSE)
 [![Build Status](https://travis-ci.com/xsahil03x/before_after.svg?branch=master)](https://travis-ci.com/xsahil03x/before_after)
+
+# 🔅 Gifs
+
+| | |  |
+| ------------------ | ------------------ | ------------------ |
+| <img src="https://user-images.githubusercontent.com/25670178/61337857-a3c7a480-a854-11e9-9582-87d7f5592007.gif" height="400" alt="Screenshot"/>  | <img src="https://user-images.githubusercontent.com/25670178/61338133-ba223000-a855-11e9-8b0a-a236a068c4c2.gif" height="400" alt="Screenshot"/>  | <img src="https://user-images.githubusercontent.com/25670178/61338086-8e9f4580-a855-11e9-8b7e-72244b6a456e.gif" height="400" alt="Screenshot"/>  |
+| | |  |
 
 # 💻 Installation
 In the `dependencies:` section of your `pubspec.yaml`, add the following line:
