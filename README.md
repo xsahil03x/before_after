@@ -1,7 +1,7 @@
-# 👏 Before After
+# 👏 Before After [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/MIT) [![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/xsahil03x/before_after/blob/master/LICENSE) [![Build Status](https://travis-ci.com/xsahil03x/before_after.svg?branch=master)](https://travis-ci.com/xsahil03x/before_after) [![Awesome Flutter](https://img.shields.io/badge/Awesome-Flutter-blue.svg)](https://github.com/Solido/awesome-flutter) [![FlutterWeekly](https://img.shields.io/badge/Flutter%20Weekly-%2368-teal.svg)](https://mailchi.mp/flutterweekly/flutter-weekly-68)
 
 <p align="center"> 
-<img src="https://user-images.githubusercontent.com/25670178/61337576-978f1780-a853-11e9-9249-3637d0861ebb.gif">
+<img src="https://user-images.githubusercontent.com/25670178/61337576-978f1780-a853-11e9-9249-3637d0861ebb.gif" width="100%">
 </p>
 
 [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/xsahil03x) [![Twitter](https://img.shields.io/twitter/url/https/github.com/xsahil03x/giffy_dialog.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fxsahil03x%2Fgiffy_dialog)
@@ -15,12 +15,6 @@ The source code is **100% Dart**, and everything resides in the [/lib](https://g
 
 [![GitHub stars](https://img.shields.io/github/stars/xsahil03x/before_after.svg?style=social&label=Star)](https://github.com/xsahil03x/before_after) [![GitHub forks](https://img.shields.io/github/forks/xsahil03x/before_after.svg?style=social&label=Fork)](https://github.com/xsahil03x/before_after/fork) [![GitHub watchers](https://img.shields.io/github/watchers/xsahil03x/before_after.svg?style=social&label=Watch)](https://github.com/xsahil03x/before_after) [![GitHub followers](https://img.shields.io/github/followers/xsahil03x.svg?style=social&label=Follow)](https://github.com/xsahil03x/giffy_dialog)  
 [![Twitter Follow](https://img.shields.io/twitter/follow/xsahil03x.svg?style=social)](https://twitter.com/xsahil03x)
-
-[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/MIT)
-[![License](https://img.shields.io/badge/license-MIT-orange.svg)](https://github.com/xsahil03x/before_after/blob/master/LICENSE)
-[![Build Status](https://travis-ci.com/xsahil03x/before_after.svg?branch=master)](https://travis-ci.com/xsahil03x/before_after)
-[![Awesome Flutter](https://img.shields.io/badge/Awesome-Flutter-blue.svg)](https://github.com/Solido/awesome-flutter)
-[![FlutterWeekly](https://img.shields.io/badge/Flutter%20Weekly-%2368-teal.svg)](https://mailchi.mp/flutterweekly/flutter-weekly-68)
 
 # 🔅 Gifs
 
