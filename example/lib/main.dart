@@ -22,14 +22,28 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Before After'), centerTitle: true),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          BeforeAfter(
-            beforeImage: Image.asset('assets/after.jpg'),
-            afterImage: Image.asset('assets/before.jpg'),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: BeforeAfter(
+                beforeImage: Image.asset('assets/after.jpg'),
+                afterImage: Image.asset('assets/before.jpg'),
+                sliderOrientation: SliderOrientation.horizontal,
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: BeforeAfter(
+                beforeImage: Image.asset('assets/after.jpg'),
+                afterImage: Image.asset('assets/before.jpg'),
+                sliderOrientation: SliderOrientation.vertical,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
