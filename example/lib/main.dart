@@ -31,7 +31,6 @@ class MyHomePage extends StatelessWidget {
               child: BeforeAfter(
                 beforeImage: Image.asset('assets/after.jpg'),
                 afterImage: Image.asset('assets/before.jpg'),
-                sliderOrientation: SliderOrientation.horizontal,
               ),
             ),
             Expanded(
@@ -39,7 +38,7 @@ class MyHomePage extends StatelessWidget {
               child: BeforeAfter(
                 beforeImage: Image.asset('assets/after.jpg'),
                 afterImage: Image.asset('assets/before.jpg'),
-                sliderOrientation: SliderOrientation.vertical,
+                isVertical: true,
               ),
             ),
           ],
