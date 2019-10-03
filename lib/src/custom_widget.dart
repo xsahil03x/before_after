@@ -1,8 +1,6 @@
 import 'package:before_after/src/rect_clipper.dart';
 import 'package:flutter/material.dart';
 
-enum SliderOrientation { vertical, horizontal }
-
 class BeforeAfter extends StatefulWidget {
   final Widget beforeImage;
   final Widget afterImage;
@@ -12,21 +10,21 @@ class BeforeAfter extends StatefulWidget {
   final Color thumbColor;
   final double thumbRadius;
   final Color overlayColor;
-  final SliderOrientation sliderOrientation;
-  const BeforeAfter(
-      {Key key,
-      @required this.beforeImage,
-      @required this.afterImage,
-      this.imageHeight,
-      this.imageWidth,
-      this.imageCornerRadius = 8.0,
-      this.thumbColor = Colors.white,
-      this.thumbRadius = 16.0,
-      this.overlayColor,
-      this.sliderOrientation = SliderOrientation.horizontal})
-      : assert(beforeImage != null),
+  final bool isVertical;
+
+  const BeforeAfter({
+    Key key,
+    @required this.beforeImage,
+    @required this.afterImage,
+    this.imageHeight,
+    this.imageWidth,
+    this.imageCornerRadius = 8.0,
+    this.thumbColor = Colors.white,
+    this.thumbRadius = 16.0,
+    this.overlayColor,
+    this.isVertical = false,
+  })  : assert(beforeImage != null),
         assert(afterImage != null),
-        assert(sliderOrientation != null),
         super(key: key);
 
   @override
@@ -35,13 +33,14 @@ class BeforeAfter extends StatefulWidget {
 
 class _BeforeAfterState extends State<BeforeAfter> {
   double _clipFactor = 0.5;
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.center,
       children: <Widget>[
         Padding(
-          padding: widget.sliderOrientation == SliderOrientation.vertical
+          padding: widget.isVertical
               ? const EdgeInsets.symmetric(vertical: 24.0)
               : const EdgeInsets.symmetric(horizontal: 24.0),
           child: SizedImage(
@@ -52,11 +51,11 @@ class _BeforeAfterState extends State<BeforeAfter> {
           ),
         ),
         Padding(
-          padding: widget.sliderOrientation == SliderOrientation.vertical
+          padding: widget.isVertical
               ? const EdgeInsets.symmetric(vertical: 24.0)
               : const EdgeInsets.symmetric(horizontal: 24.0),
           child: ClipPath(
-            clipper: widget.sliderOrientation == SliderOrientation.vertical
+            clipper: widget.isVertical
                 ? RectClipperVertical(_clipFactor)
                 : RectClipper(_clipFactor),
             child: SizedImage(
@@ -70,13 +69,12 @@ class _BeforeAfterState extends State<BeforeAfter> {
         Positioned.fill(
           child: SliderTheme(
             data: SliderThemeData(
+              trackHeight: 0.0,
               overlayColor: widget.overlayColor,
               thumbShape:
                   CustomThumbShape(widget.thumbRadius, widget.thumbColor),
-              activeTrackColor: Colors.transparent,
-              inactiveTrackColor: Colors.transparent,
             ),
-            child: widget.sliderOrientation == SliderOrientation.vertical
+            child: widget.isVertical
                 ? RotatedBox(
                     quarterTurns: 1,
                     child: Slider(
