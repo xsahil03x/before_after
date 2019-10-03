@@ -69,6 +69,11 @@ All customizable attributes for BeforeAfter Widget
         <td>Sets the After Image</td>
     </tr>
     <tr>
+            <td>isVertical (bool)</td>
+            <td>false</td>
+            <td>Sets the orientation of the slider</td>
+        </tr>
+    <tr>
         <td>imageHeight (double)</td>
         <td>100.0</td>
         <td>Sets height of both the images</td>
