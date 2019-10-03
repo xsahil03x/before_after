@@ -18,3 +18,22 @@ class RectClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }
+
+class RectClipperVertical extends CustomClipper<Path> {
+  final double clipFactor;
+
+  RectClipperVertical(this.clipFactor);
+
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0.0, size.height * clipFactor);
+    path.lineTo(size.width, size.height * clipFactor);
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
+}
