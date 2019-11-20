@@ -1,6 +1,6 @@
 name: before_after
 description: A flutter package which makes it easier to display the difference between two images.
-version: 2.0.0
+version: 2.0.1
 author: Sahil Kumar <xdsahil@gmail.com>
 homepage: https://github.com/xsahil03x/before_after
 
