@@ -139,8 +139,7 @@ class CustomThumbShape extends SliderComponentShape {
       TextDirection textDirection,
       double value,
       double textScaleFactor,
-      Size sizeWithOverflow
-      }) {
+      Size sizeWithOverflow}) {
     final Canvas canvas = context.canvas;
 
     final Paint paint = Paint()
