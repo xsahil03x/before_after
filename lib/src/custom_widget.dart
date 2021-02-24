@@ -41,8 +41,7 @@ class BeforeAfter extends StatefulWidget {
   _BeforeAfterState createState() => _BeforeAfterState();
 }
 
-class _BeforeAfterState extends State<BeforeAfter>
-    with SingleTickerProviderStateMixin {
+class _BeforeAfterState extends State<BeforeAfter> {
   double _clipFactor = 0.5;
   double _endValue = 1.0;
   bool _autoAnimation;
