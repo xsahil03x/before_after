@@ -98,11 +98,18 @@ All customizable attributes for BeforeAfter Widget
         <td>16.0</td>
         <td>Sets the radius of the thumb circle</td>
     </tr>
+    <tr>
+            <td>isVertical (bool)</td>
+            <td>false</td>
+            <td>Sets the orientation of the slider</td>
+        </tr>
+    <tr>
       <tr>
         <td>overlayColor (Color)</td>
         <td>Colors.yellow</td>
         <td>Sets the color of the slider thumb overlay</td>
     </tr>
+
     
 </table>
 
