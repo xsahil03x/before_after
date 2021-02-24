@@ -1,6 +1,6 @@
 2.2.0
 
-    Added autoAnimation and the ability to remove the CustomThumbShape widget.
+    Added autoAnimation and the ability to change the visibility the slider widget.
 
 2.1.0
 

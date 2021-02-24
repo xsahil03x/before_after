@@ -11,9 +11,9 @@ class BeforeAfter extends StatefulWidget {
   final double thumbRadius;
   final Color overlayColor;
   final bool isVertical;
-  final Duration duration;
   final bool autoAnimation;
   final bool repeatAnimation;
+  final Duration duration;
   final Curve curve;
   final bool visibleSeparation;
 
@@ -28,9 +28,9 @@ class BeforeAfter extends StatefulWidget {
     this.thumbRadius = 16.0,
     this.overlayColor,
     this.isVertical = false,
-    this.duration = const Duration(milliseconds: 1900),
     this.autoAnimation = false,
     this.repeatAnimation = false,
+    this.duration = const Duration(milliseconds: 1900),
     this.curve = Curves.easeInOutCubic,
     this.visibleSeparation = true,
   })  : assert(beforeImage != null),

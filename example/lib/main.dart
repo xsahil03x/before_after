@@ -27,22 +27,51 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Expanded(
-              flex: 1,
-              child: BeforeAfter(
-                autoAnimation: true,
-                repeatAnimation: true,
-                curve: Curves.easeInOutCubic,
-                visibleSeparation: false,
-                beforeImage: Image.asset('assets/after.jpg'),
-                afterImage: Image.asset('assets/before.jpg'),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: BeforeAfter(
+                      autoAnimation: true,
+                      repeatAnimation: true,
+                      curve: Curves.easeInOutCubic,
+                      visibleSeparation: false,
+                      beforeImage: Image.asset('assets/after.jpg'),
+                      afterImage: Image.asset('assets/before.jpg'),
+                    ),
+                  ),
+                  Expanded(
+                    child: BeforeAfter(
+                      beforeImage: Image.asset('assets/after.jpg'),
+                      afterImage: Image.asset('assets/before.jpg'),
+                    ),
+                  )
+                ],
               ),
             ),
             Expanded(
-              flex: 1,
-              child: BeforeAfter(
-                beforeImage: Image.asset('assets/after.jpg'),
-                afterImage: Image.asset('assets/before.jpg'),
-                isVertical: true,
+              child: Row(
+                children: [
+                  Spacer(),
+                  Expanded(
+                    flex: 5,
+                    child: BeforeAfter(
+                      autoAnimation: true,
+                      isVertical: true,
+                      beforeImage: Image.asset('assets/after.jpg'),
+                      afterImage: Image.asset('assets/before.jpg'),
+                    ),
+                  ),
+                  Spacer(),
+                  Expanded(
+                    flex: 5,
+                    child: BeforeAfter(
+                      isVertical: true,
+                      beforeImage: Image.asset('assets/after.jpg'),
+                      afterImage: Image.asset('assets/before.jpg'),
+                    ),
+                  ),
+                  Spacer(),
+                ],
               ),
             ),
           ],
