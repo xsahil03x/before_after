@@ -15,7 +15,7 @@ class BeforeAfter extends StatefulWidget {
   final bool repeatAnimation;
   final Duration duration;
   final Curve curve;
-  final bool visibleSeparation;
+  final bool visibleSlider;
 
   const BeforeAfter({
     Key key,
@@ -32,7 +32,7 @@ class BeforeAfter extends StatefulWidget {
     this.repeatAnimation = false,
     this.duration = const Duration(milliseconds: 1900),
     this.curve = Curves.easeInOutCubic,
-    this.visibleSeparation = true,
+    this.visibleSlider = true,
   })  : assert(beforeImage != null),
         assert(afterImage != null),
         super(key: key);
@@ -113,7 +113,7 @@ class _BeforeAfterState extends State<BeforeAfter>
                 data: SliderThemeData(
                   trackHeight: 0.0,
                   overlayColor: widget.overlayColor,
-                  thumbShape: widget.visibleSeparation
+                  thumbShape: widget.visibleSlider
                       ? CustomThumbShape(widget.thumbRadius, widget.thumbColor)
                       : EmptyShape(
                           widget.thumbRadius,

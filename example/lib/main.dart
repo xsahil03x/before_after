@@ -34,7 +34,7 @@ class MyHomePage extends StatelessWidget {
                       autoAnimation: true,
                       repeatAnimation: true,
                       curve: Curves.easeInOutCubic,
-                      visibleSeparation: false,
+                      visibleSlider: false,
                       beforeImage: Image.asset('assets/after.jpg'),
                       afterImage: Image.asset('assets/before.jpg'),
                     ),

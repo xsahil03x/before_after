@@ -114,11 +114,6 @@ All customizable attributes for BeforeAfter Widget
         <td>Sets the behavior of the animation</td>
     </tr>
       <tr>
-        <td>repeatAnimation (bool)</td>
-        <td>true</td>
-        <td>Sets the behavior of the animation</td>
-    </tr>
-      <tr>
         <td>duration (Duration)</td>
         <td>const Duration(milliseconds: 1900)</td>
         <td>Sets the duration of the animation</td>
@@ -129,7 +124,7 @@ All customizable attributes for BeforeAfter Widget
         <td>Sets the curve of the animation</td>
     </tr>
       <tr>
-        <td>visibleSeparation (bool)</td>
+        <td>visibleSlider (bool)</td>
         <td>false</td>
         <td>Sets the visibility the slider widget</td>
     </tr>
