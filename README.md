@@ -103,6 +103,33 @@ All customizable attributes for BeforeAfter Widget
         <td>Colors.yellow</td>
         <td>Sets the color of the slider thumb overlay</td>
     </tr>
+      <tr>
+        <td>autoAnimation (bool)</td>
+        <td>true</td>
+        <td>Sets the animation of the slider</td>
+    </tr>
+      <tr>
+        <td>repeatAnimation (bool)</td>
+        <td>true</td>
+        <td>Sets the behavior of the animation</td>
+    </tr>
+      <tr>
+        <td>duration (Duration)</td>
+        <td>const Duration(milliseconds: 1900)</td>
+        <td>Sets the duration of the animation</td>
+    </tr>
+      <tr>
+        <td>curve (Curve)</td>
+        <td>Curves.easeInOutCubic</td>
+        <td>Sets the curve of the animation</td>
+    </tr>
+      <tr>
+        <td>visibleSlider (bool)</td>
+        <td>false</td>
+        <td>Sets the visibility the slider widget</td>
+    </tr>
+    
+    
     
 </table>
 

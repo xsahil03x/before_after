@@ -1,3 +1,7 @@
+2.2.0
+
+    Added autoAnimation and the ability to change the visibility the slider widget.
+
 2.1.0
 
     Added fix for Flutter 1.19.
