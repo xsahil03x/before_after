@@ -13,19 +13,17 @@ class BeforeAfter extends StatefulWidget {
   final bool isVertical;
 
   const BeforeAfter({
-    Key key,
-    @required this.beforeImage,
-    @required this.afterImage,
-    this.imageHeight,
-    this.imageWidth,
+    Key? key,
+    required this.beforeImage,
+    required this.afterImage,
+    this.imageHeight = 0,
+    this.imageWidth = 0,
     this.imageCornerRadius = 8.0,
     this.thumbColor = Colors.white,
     this.thumbRadius = 16.0,
-    this.overlayColor,
+    this.overlayColor = Colors.black54,
     this.isVertical = false,
-  })  : assert(beforeImage != null),
-        assert(afterImage != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _BeforeAfterState createState() => _BeforeAfterState();
@@ -101,7 +99,7 @@ class SizedImage extends StatelessWidget {
 
   const SizedImage(
       this._image, this._height, this._width, this._imageCornerRadius,
-      {Key key})
+      {Key? key})
       : super(key: key);
 
   @override
@@ -129,17 +127,20 @@ class CustomThumbShape extends SliderComponentShape {
   }
 
   @override
-  void paint(PaintingContext context, Offset center,
-      {Animation<double> activationAnimation,
-      Animation<double> enableAnimation,
-      bool isDiscrete,
-      TextPainter labelPainter,
-      RenderBox parentBox,
-      SliderThemeData sliderTheme,
-      TextDirection textDirection,
-      double value,
-      double textScaleFactor,
-      Size sizeWithOverflow}) {
+  void paint(
+    PaintingContext context,
+    Offset center, {
+    required Animation<double> activationAnimation,
+    required Animation<double> enableAnimation,
+    bool? isDiscrete,
+    required TextPainter labelPainter,
+    required RenderBox parentBox,
+    required SliderThemeData sliderTheme,
+    TextDirection? textDirection,
+    double? value,
+    double? textScaleFactor,
+    Size? sizeWithOverflow,
+  }) {
     final Canvas canvas = context.canvas;
 
     final Paint paint = Paint()
