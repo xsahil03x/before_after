@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 class BeforeAfter extends StatefulWidget {
   final Widget beforeImage;
   final Widget afterImage;
-  final double imageHeight;
-  final double imageWidth;
+  final double? imageHeight;
+  final double? imageWidth;
   final double imageCornerRadius;
   final Color thumbColor;
   final double thumbRadius;
-  final Color overlayColor;
+  final Color? overlayColor;
   final bool isVertical;
 
   const BeforeAfter({
-    Key key,
-    @required this.beforeImage,
-    @required this.afterImage,
+    Key? key,
+    required this.beforeImage,
+    required this.afterImage,
     this.imageHeight,
     this.imageWidth,
     this.imageCornerRadius = 8.0,
@@ -23,9 +23,7 @@ class BeforeAfter extends StatefulWidget {
     this.thumbRadius = 16.0,
     this.overlayColor,
     this.isVertical = false,
-  })  : assert(beforeImage != null),
-        assert(afterImage != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _BeforeAfterState createState() => _BeforeAfterState();
@@ -97,11 +95,12 @@ class _BeforeAfterState extends State<BeforeAfter> {
 
 class SizedImage extends StatelessWidget {
   final Widget _image;
-  final double _height, _width, _imageCornerRadius;
+  final double? _height, _width;
+  final double _imageCornerRadius;
 
   const SizedImage(
       this._image, this._height, this._width, this._imageCornerRadius,
-      {Key key})
+      {Key? key})
       : super(key: key);
 
   @override
@@ -129,17 +128,20 @@ class CustomThumbShape extends SliderComponentShape {
   }
 
   @override
-  void paint(PaintingContext context, Offset center,
-      {Animation<double> activationAnimation,
-      Animation<double> enableAnimation,
-      bool isDiscrete,
-      TextPainter labelPainter,
-      RenderBox parentBox,
-      SliderThemeData sliderTheme,
-      TextDirection textDirection,
-      double value,
-      double textScaleFactor,
-      Size sizeWithOverflow}) {
+  void paint(
+    PaintingContext context,
+    Offset center, {
+    required Animation<double> activationAnimation,
+    required Animation<double> enableAnimation,
+    required bool isDiscrete,
+    required TextPainter labelPainter,
+    required RenderBox parentBox,
+    required SliderThemeData sliderTheme,
+    required TextDirection textDirection,
+    required double value,
+    required double textScaleFactor,
+    required Size sizeWithOverflow,
+  }) {
     final Canvas canvas = context.canvas;
 
     final Paint paint = Paint()
