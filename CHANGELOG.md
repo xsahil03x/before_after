@@ -1,3 +1,7 @@
+3.0.0
+
+    Add Dart Null Safety
+    
 2.1.0
 
     Added fix for Flutter 1.19.
