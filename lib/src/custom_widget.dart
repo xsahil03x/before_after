@@ -12,6 +12,7 @@ class BeforeAfter extends StatefulWidget {
   final Color overlayColor;
   final bool isVertical;
   final double initClipFactor;
+  final StackFit fit;
 
   const BeforeAfter({
     Key key,
@@ -25,6 +26,7 @@ class BeforeAfter extends StatefulWidget {
     this.overlayColor,
     this.isVertical = false,
     this.initClipFactor = 0.5,
+    this.fit = StackFit.loose,
   })  : assert(beforeImage != null),
         assert(afterImage != null),
         super(key: key);
@@ -42,6 +44,7 @@ class _BeforeAfterState extends State<BeforeAfter> {
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.center,
+      fit: widget.fit,
       children: <Widget>[
         Padding(
           padding: widget.isVertical
