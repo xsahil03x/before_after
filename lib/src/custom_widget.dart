@@ -11,6 +11,7 @@ class BeforeAfter extends StatefulWidget {
   final double thumbRadius;
   final Color overlayColor;
   final bool isVertical;
+  final double initClipFactor;
 
   const BeforeAfter({
     Key key,
@@ -23,16 +24,19 @@ class BeforeAfter extends StatefulWidget {
     this.thumbRadius = 16.0,
     this.overlayColor,
     this.isVertical = false,
+    this.initClipFactor = 0.5,
   })  : assert(beforeImage != null),
         assert(afterImage != null),
         super(key: key);
 
   @override
-  _BeforeAfterState createState() => _BeforeAfterState();
+  _BeforeAfterState createState() => _BeforeAfterState(initClipFactor);
 }
 
 class _BeforeAfterState extends State<BeforeAfter> {
-  double _clipFactor = 0.5;
+  double _clipFactor;
+
+  _BeforeAfterState(this._clipFactor);
 
   @override
   Widget build(BuildContext context) {
