@@ -23,9 +23,7 @@ class BeforeAfter extends StatefulWidget {
     this.thumbRadius = 16.0,
     this.overlayColor,
     this.isVertical = false,
-  })  : assert(beforeImage != null),
-        assert(afterImage != null),
-        super(key: key);
+  }) : super(key: key);
 
   @override
   _BeforeAfterState createState() => _BeforeAfterState();
