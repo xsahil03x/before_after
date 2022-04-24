@@ -7,19 +7,19 @@ class BeforeAfter extends StatefulWidget {
   final double? imageHeight;
   final double? imageWidth;
   final double imageCornerRadius;
-  final Color thumbColor;
+  late Color thumbColor;
   final double thumbRadius;
   final Color? overlayColor;
   final bool isVertical;
 
-  const BeforeAfter({
+  BeforeAfter({
     Key? key,
     required this.beforeImage,
     required this.afterImage,
     this.imageHeight,
     this.imageWidth,
     this.imageCornerRadius = 8.0,
-    this.thumbColor = Colors.white,
+    this.thumbColor = Colors.green,
     this.thumbRadius = 16.0,
     this.overlayColor,
     this.isVertical = false,
@@ -31,61 +31,98 @@ class BeforeAfter extends StatefulWidget {
 
 class _BeforeAfterState extends State<BeforeAfter> {
   double _clipFactor = 0.5;
+  var _ignoreSlider = false;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: Alignment.center,
-      children: <Widget>[
-        Padding(
-          padding: widget.isVertical
-              ? const EdgeInsets.symmetric(vertical: 24.0)
-              : const EdgeInsets.symmetric(horizontal: 24.0),
-          child: SizedImage(
-            widget.afterImage,
-            widget.imageHeight,
-            widget.imageWidth,
-            widget.imageCornerRadius,
-          ),
-        ),
-        Padding(
-          padding: widget.isVertical
-              ? const EdgeInsets.symmetric(vertical: 24.0)
-              : const EdgeInsets.symmetric(horizontal: 24.0),
-          child: ClipPath(
-            clipper: widget.isVertical
-                ? RectClipperVertical(_clipFactor)
-                : RectClipper(_clipFactor),
-            child: SizedImage(
-              widget.beforeImage,
-              widget.imageHeight,
-              widget.imageWidth,
-              widget.imageCornerRadius,
-            ),
-          ),
-        ),
-        Positioned.fill(
-          child: SliderTheme(
-            data: SliderThemeData(
-              trackHeight: 0.0,
-              overlayColor: widget.overlayColor,
-              thumbShape:
-                  CustomThumbShape(widget.thumbRadius, widget.thumbColor),
-            ),
-            child: widget.isVertical
-                ? RotatedBox(
-                    quarterTurns: 1,
-                    child: Slider(
-                      value: _clipFactor,
-                      onChanged: (double factor) =>
-                          setState(() => this._clipFactor = factor),
-                    ),
-                  )
-                : Slider(
-                    value: _clipFactor,
-                    onChanged: (double factor) =>
-                        setState(() => this._clipFactor = factor),
+      children: [
+        GestureDetector(
+          onLongPress: (() {
+            setState(() {
+              _ignoreSlider = false;
+              widget.thumbColor = Colors.green;
+              print(_ignoreSlider);
+            });
+          }),
+          child: InteractiveViewer(
+            clipBehavior: Clip.none,
+            minScale: 1,
+            maxScale: 4,
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                Padding(
+                  padding: widget.isVertical
+                      ? const EdgeInsets.symmetric(vertical: 24.0)
+                      : const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: SizedImage(
+                    widget.afterImage,
+                    widget.imageHeight,
+                    widget.imageWidth,
+                    widget.imageCornerRadius,
                   ),
+                ),
+                Padding(
+                  padding: widget.isVertical
+                      ? const EdgeInsets.symmetric(vertical: 24.0)
+                      : const EdgeInsets.symmetric(horizontal: 24.0),
+                  child: ClipPath(
+                    clipper: widget.isVertical
+                        ? RectClipperVertical(_clipFactor)
+                        : RectClipper(_clipFactor),
+                    child: SizedImage(
+                      widget.beforeImage,
+                      widget.imageHeight,
+                      widget.imageWidth,
+                      widget.imageCornerRadius,
+                    ),
+                  ),
+                ),
+                Positioned.fill(
+                  child: GestureDetector(
+                    onLongPress: (){
+                      widget.thumbColor = Colors.grey;
+                      _ignoreSlider = true;
+                      print(_ignoreSlider);
+                    },
+                    child: IgnorePointer(
+                      ignoring: _ignoreSlider,
+                      child: SliderTheme(
+                        data: SliderThemeData(
+                          trackHeight: 0.0,
+                          overlayColor: widget.overlayColor,
+                          thumbShape:
+                          CustomThumbShape(widget.thumbRadius, widget.thumbColor),
+                        ),
+                        child: widget.isVertical
+                            ? RotatedBox(
+                          quarterTurns: 1,
+                          child: Slider(
+                            value: _clipFactor,
+                            onChanged: (double factor) =>
+                                setState(() {
+                                  double diff = (factor - _clipFactor).abs();
+                                  if(diff<=0.07) {
+                                    _clipFactor = factor;
+                                  }}),
+                          ),
+                        )
+                            : Slider(
+                          value: _clipFactor,
+                          onChanged: (double factor) =>
+                              setState(() {
+                                double diff = (factor - _clipFactor).abs();
+                                if(diff<=0.07) {
+                                  _clipFactor = factor;
+                                }}),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],
@@ -129,15 +166,15 @@ class CustomThumbShape extends SliderComponentShape {
   @override
   void paint(PaintingContext context, Offset center,
       {Animation<double>? activationAnimation,
-      Animation<double>? enableAnimation,
-      bool? isDiscrete,
-      TextPainter? labelPainter,
-      required RenderBox parentBox,
-      SliderThemeData? sliderTheme,
-      TextDirection? textDirection,
-      double? value,
-      double? textScaleFactor,
-      Size? sizeWithOverflow}) {
+        Animation<double>? enableAnimation,
+        bool? isDiscrete,
+        TextPainter? labelPainter,
+        required RenderBox parentBox,
+        SliderThemeData? sliderTheme,
+        TextDirection? textDirection,
+        double? value,
+        double? textScaleFactor,
+        Size? sizeWithOverflow}) {
     final Canvas canvas = context.canvas;
 
     final Paint paint = Paint()

@@ -40,14 +40,14 @@ class MyHomePage extends StatelessWidget {
                 afterImage: Image.asset('assets/before.jpg'),
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: BeforeAfter(
-                beforeImage: Image.asset('assets/after.jpg'),
-                afterImage: Image.asset('assets/before.jpg'),
-                isVertical: true,
-              ),
-            ),
+            // Expanded(
+            //   flex: 1,
+            //   child: BeforeAfter(
+            //     beforeImage: Image.asset('assets/after.jpg'),
+            //     afterImage: Image.asset('assets/before.jpg'),
+            //     isVertical: true,
+            //   ),
+            // ),
           ],
         ),
       ),
