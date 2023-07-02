@@ -1,3 +1,4 @@
 library before_after;
 
-export 'src/custom_widget.dart';
+export 'src/before_after.dart';
+export 'src/before_after_theme.dart';

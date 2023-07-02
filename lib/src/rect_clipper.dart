@@ -1,39 +1,48 @@
 import 'package:flutter/material.dart';
 
-class RectClipper extends CustomClipper<Path> {
+import '../before_after.dart';
+
+/// A custom clipper that clips a rectangular region based on the provided direction and clip factor.
+///
+/// The [RectClipper] is used to clip a rectangular region within a widget.
+/// The clipping can be controlled by specifying the [direction] and [clipFactor].
+///
+/// The [direction] determines the direction of clipping and can be either [SliderDirection.horizontal] or [SliderDirection.vertical].
+/// For the horizontal direction, the clipping width is calculated as the product of the widget's width and the [clipFactor].
+/// For the vertical direction, the clipping height is calculated as the product of the widget's height and the [clipFactor].
+///
+/// The [clipFactor] specifies the fraction of the widget's size that should be clipped.
+/// It should be a value between 0.0 and 1.0, where 0.0 indicates no clipping and 1.0 indicates full clipping.
+class RectClipper extends CustomClipper<Rect> {
+  /// Creates a [RectClipper] with the specified direction and clip factor.
+  const RectClipper({
+    required this.direction,
+    required this.clipFactor,
+  });
+
+  /// The direction in which the clipping should occur.
+  final SliderDirection direction;
+
+  /// The fraction of the widget's size to be clipped.
   final double clipFactor;
 
-  RectClipper(this.clipFactor);
-
   @override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.lineTo(size.width * clipFactor, 0.0);
-    path.lineTo(size.width * clipFactor, size.height);
-    path.lineTo(0.0, size.height);
-    path.close();
-    return path;
+  Rect getClip(Size size) {
+    final rect = Rect.fromLTWH(
+      0.0,
+      0.0,
+      direction == SliderDirection.horizontal
+          ? size.width * clipFactor
+          : size.width,
+      direction == SliderDirection.vertical
+          ? size.height * clipFactor
+          : size.height,
+    );
+
+    return rect;
   }
 
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
-}
-
-class RectClipperVertical extends CustomClipper<Path> {
-  final double clipFactor;
-
-  RectClipperVertical(this.clipFactor);
-
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.lineTo(0.0, size.height * clipFactor);
-    path.lineTo(size.width, size.height * clipFactor);
-    path.lineTo(size.width, 0.0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
+  bool shouldReclip(RectClipper oldClipper) =>
+      oldClipper.clipFactor != clipFactor || oldClipper.direction != direction;
 }
