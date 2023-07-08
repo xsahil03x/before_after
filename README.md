@@ -8,8 +8,8 @@
 
 <p>A flutter package which makes it easier to display the differences between two images..</p>
 
-The source code is **100% Dart**, and everything resides in the [/lib](https://github.com/xsahil03x/giffy_dialog/tree/master/lib) folder.
-
+The source code is **100% Dart**, and everything resides in
+the [/lib](https://github.com/xsahil03x/giffy_dialog/tree/master/lib) folder.
 
 ### Show some :heart: and star the repo to support the project
 
@@ -18,12 +18,13 @@ The source code is **100% Dart**, and everything resides in the [/lib](https://g
 
 # 🔅 Gifs
 
-| | |  |
-| ------------------ | ------------------ | ------------------ |
-| <img src="https://user-images.githubusercontent.com/25670178/61337857-a3c7a480-a854-11e9-9582-87d7f5592007.gif" height="400" alt="Screenshot"/>  | <img src="https://user-images.githubusercontent.com/25670178/61338133-ba223000-a855-11e9-8b0a-a236a068c4c2.gif" height="400" alt="Screenshot"/>  | <img src="https://user-images.githubusercontent.com/25670178/61338086-8e9f4580-a855-11e9-8b7e-72244b6a456e.gif" height="400" alt="Screenshot"/>  |
-| | |  |
+|                                                                                                                                                 |                                                                                                                                                 |                                                                                                                                                 |
+|-------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| <img src="https://user-images.githubusercontent.com/25670178/61337857-a3c7a480-a854-11e9-9582-87d7f5592007.gif" height="400" alt="Screenshot"/> | <img src="https://user-images.githubusercontent.com/25670178/61338133-ba223000-a855-11e9-8b0a-a236a068c4c2.gif" height="400" alt="Screenshot"/> | <img src="https://user-images.githubusercontent.com/25670178/61338086-8e9f4580-a855-11e9-8b7e-72244b6a456e.gif" height="400" alt="Screenshot"/> |
+|                                                                                                                                                 |                                                                                                                                                 |                                                                                                                                                 |
 
 # 💻 Installation
+
 In the `dependencies:` section of your `pubspec.yaml`, add the following line:
 
 [![Version](https://img.shields.io/pub/v/before_after.svg)](https://pub.dartlang.org/packages/before_after)
@@ -32,7 +33,6 @@ In the `dependencies:` section of your `pubspec.yaml`, add the following line:
 dependencies:
   before_after: <latest version>
 ```
-
 
 # ❔ Usage
 
@@ -45,86 +45,43 @@ import 'package:before_after/before_after.dart';
 ### before after
 
 ```dart
-   BeforeAfter(
-     beforeImage: Image.asset('assets/after.jpg'),
-     afterImage: Image.asset('assets/before.jpg'),
-   ),
+BeforeAfter(
+  value: value,
+  before: Image.asset('assets/after.png'),
+  after: Image.asset('assets/before.png'),
+  onValueChanged: (value) {
+    setState(() => this.value = value);
+  },
+)
 ```
 
 ## 🎨 Customization and Attributes
 
-All customizable attributes for BeforeAfter Widget
-<table>
-    <th>Attribute Name</th>
-    <th>Example Value</th>
-    <th>Description</th>
-    <tr>
-        <td>beforeImage (Widget)</td>
-        <td>Image.asset('assets/before.jpg')</td>
-        <td>Sets the Before Image</td>
-    </tr>
-    <tr>
-        <td>afterImage (Widget)</td>
-        <td>Image.asset('assets/after.jpg')</td>
-        <td>Sets the After Image</td>
-    </tr>
-    <tr>
-            <td>isVertical (bool)</td>
-            <td>false</td>
-            <td>Sets the orientation of the slider</td>
-        </tr>
-    <tr>
-        <td>imageHeight (double)</td>
-        <td>100.0</td>
-        <td>Sets height of both the images</td>
-    </tr>
-    <tr>
-        <td>imageWidth (double)</td>
-        <td>200.0</td>
-        <td>Sets width of the images</td>
-    </tr>
-    <tr>
-        <td>imageCornerRadius (double)</td>
-        <td>16.0</td>
-        <td>Sets the corner radius of the images</td>
-    </tr>
-    <tr>
-        <td>thumbColor (Color)</td>
-        <td>Colors.red</td>
-        <td>Sets the color of the slider</td>
-    </tr>
-      <tr>
-        <td>thumbRadius (double)</td>
-        <td>16.0</td>
-        <td>Sets the radius of the thumb circle</td>
-    </tr>
-      <tr>
-        <td>overlayColor (Color)</td>
-        <td>Colors.yellow</td>
-        <td>Sets the color of the slider thumb overlay</td>
-    </tr>
-    
-</table>
-
-# 👍 How to Contribute
-1. Fork it
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create new Pull Request
+| Field                  | Type                           | Description                                                                             |
+|------------------------|--------------------------------|-----------------------------------------------------------------------------------------|
+| before                 | Widget                         | The widget to be displayed before the slider.                                           |
+| after                  | Widget                         | The widget to be displayed after the slider.                                            |
+| direction              | SliderDirection                | The drag direction of the slider.                                                       |
+| height                 | double?                        | The height of the BeforeAfter widget.                                                   |
+| width                  | double?                        | The width of the BeforeAfter widget.                                                    |
+| trackWidth             | double?                        | The width of the slider track.                                                          |
+| trackColor             | Color?                         | The color of the slider track.                                                          |
+| hideThumb              | bool                           | Whether to hide the slider thumb.                                                       |
+| thumbHeight            | double?                        | The height of the slider thumb.                                                         |
+| thumbWidth             | double?                        | The width of the slider thumb.                                                          |
+| thumbColor             | Color?                         | The color of the slider thumb.                                                          |
+| overlayColor           | MaterialStateProperty<Color?>? | The highlight color that's typically used to indicate that the slider thumb is focused. |
+| thumbDecoration        | BoxDecoration?                 | The decoration of the slider thumb.                                                     |
+| divisions              | int?                           | The number of discrete divisions on the slider.                                         |
+| value                  | double                         | The position of the slider, ranging from 0.0 to 1.0.                                    |
+| onValueChanged         | ValueChanged<double>?          | A callback function that is called when the value of the slider changes.                |
+| thumbDivisions         | int?                           | The number of discrete divisions on the slider thumb.                                   |
+| thumbPosition          | double                         | The position of the slider thumb, ranging from 0.0 to 1.0.                              |
+| onThumbPositionChanged | ValueChanged<double>?          | A callback function that is called when the position of the thumb changes.              |
+| focusNode              | FocusNode?                     | The focus node for the widget.                                                          |
+| autofocus              | bool                           | Whether the widget should be focused automatically.                                     |
+| mouseCursor            | MouseCursor?                   | The cursor for a mouse pointer when it enters or hovers over the widget.                |
 
 # 📃 License
 
-    Copyright (c) 2019 Sahil Kumar
-    
-    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-    
-    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-    
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-## Getting Started
-
-For help getting started with Flutter, view our online [documentation](https://flutter.io/).
-
-For help on editing package code, view the [documentation](https://flutter.io/developing-packages/).
+[MIT License](LICENSE)

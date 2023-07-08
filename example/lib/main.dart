@@ -11,20 +11,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
+      theme: ThemeData(useMaterial3: true),
       home: const MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  var value = 0.5;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: const Text('Before After'),
         centerTitle: true,
@@ -33,19 +39,38 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: BeforeAfter(
-                beforeImage: Image.asset('assets/after.jpg'),
-                afterImage: Image.asset('assets/before.jpg'),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: BeforeAfter(
+                    value: value,
+                    before: Image.asset('assets/after.png'),
+                    after: Image.asset('assets/before.png'),
+                    onValueChanged: (value) {
+                      setState(() => this.value = value);
+                    },
+                  ),
+                ),
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: BeforeAfter(
-                beforeImage: Image.asset('assets/after.jpg'),
-                afterImage: Image.asset('assets/before.jpg'),
-                isVertical: true,
+            const SizedBox(height: 20),
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: BeforeAfter(
+                    value: value,
+                    before: Image.asset('assets/after.jpg'),
+                    after: Image.asset('assets/before.jpg'),
+                    direction: SliderDirection.vertical,
+                    onValueChanged: (value) {
+                      setState(() => this.value = value);
+                    },
+                  ),
+                ),
               ),
             ),
           ],
