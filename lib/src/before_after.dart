@@ -152,6 +152,7 @@ class BeforeAfter extends StatefulWidget {
   /// If [mouseCursor] is a [MaterialStateProperty<MouseCursor>],
   /// [MaterialStateProperty.resolve] is used for the following [MaterialState]s:
   ///
+  ///  * [MaterialState.disabled].
   ///  * [MaterialState.dragged].
   ///  * [MaterialState.hovered].
   ///  * [MaterialState.focused].
