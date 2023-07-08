@@ -1,3 +1,7 @@
+## 3.0.0+1
+
+- Add live demo link to README.
+
 ## 3.0.0
 
 🚨 Breaking
