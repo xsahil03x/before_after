@@ -11,6 +11,8 @@
 The source code is **100% Dart**, and everything resides in
 the [/lib](https://github.com/xsahil03x/giffy_dialog/tree/master/lib) folder.
 
+Live Demo: https://xsahil03x.github.io/before_after
+
 ### Show some :heart: and star the repo to support the project
 
 [![GitHub stars](https://img.shields.io/github/stars/xsahil03x/before_after.svg?style=social&label=Star)](https://github.com/xsahil03x/before_after) [![GitHub forks](https://img.shields.io/github/forks/xsahil03x/before_after.svg?style=social&label=Fork)](https://github.com/xsahil03x/before_after/fork) [![GitHub watchers](https://img.shields.io/github/watchers/xsahil03x/before_after.svg?style=social&label=Watch)](https://github.com/xsahil03x/before_after) [![GitHub followers](https://img.shields.io/github/followers/xsahil03x.svg?style=social&label=Follow)](https://github.com/xsahil03x/giffy_dialog)  
