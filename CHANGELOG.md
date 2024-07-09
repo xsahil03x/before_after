@@ -1,3 +1,8 @@
+## 3.1.0
+
+- Migrated deprecated `MaterialStateProperty` to `WidgetStateProperty`.
+- Fixed `widget.thumbColor` not working. [#34](https://github.com/xsahil03x/before_after/issues/34)
+
 ## 3.0.0+1
 
 - Add live demo link to README.
