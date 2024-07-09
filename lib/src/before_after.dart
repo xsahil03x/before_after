@@ -414,9 +414,10 @@ class _BeforeAfterState extends State<BeforeAfter>
         beforeAfterTheme.thumbWidth ??
         defaults.thumbWidth!;
 
-    final effectiveThumbDecoration = widget.thumbDecoration ??
-        beforeAfterTheme.thumbDecoration ??
-        defaults.thumbDecoration!;
+    final effectiveThumbDecoration = (widget.thumbDecoration ??
+            beforeAfterTheme.thumbDecoration ??
+            defaults.thumbDecoration!)
+        .copyWith(color: widget.thumbColor);
 
     final isXAxis = widget.direction == SliderDirection.horizontal;
 
