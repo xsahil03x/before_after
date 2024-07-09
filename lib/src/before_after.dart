@@ -114,7 +114,7 @@ class BeforeAfter extends StatefulWidget {
 
   /// The highlight color that's typically used to indicate that
   /// the slider thumb is focused.
-  final MaterialStateProperty<Color?>? overlayColor;
+  final WidgetStateProperty<Color?>? overlayColor;
 
   /// The decoration of the slider thumb.
   ///
@@ -150,20 +150,20 @@ class BeforeAfter extends StatefulWidget {
   /// widget.
   ///
   /// If [mouseCursor] is a [MaterialStateProperty<MouseCursor>],
-  /// [MaterialStateProperty.resolve] is used for the following [MaterialState]s:
+  /// [WidgetStateProperty.resolve] is used for the following [WidgetState]s:
   ///
-  ///  * [MaterialState.disabled].
-  ///  * [MaterialState.dragged].
-  ///  * [MaterialState.hovered].
-  ///  * [MaterialState.focused].
+  ///  * [WidgetState.disabled].
+  ///  * [WidgetState.dragged].
+  ///  * [WidgetState.hovered].
+  ///  * [WidgetState.focused].
   /// {@endtemplate}
   ///
   /// If null, then the value of [SliderThemeData.mouseCursor] is used. If that
-  /// is also null, then [MaterialStateMouseCursor.clickable] is used.
+  /// is also null, then [WidgetStateMouseCursor.clickable] is used.
   ///
   /// See also:
   ///
-  ///  * [MaterialStateMouseCursor], which can be used to create a [MouseCursor]
+  ///  * [WidgetStateMouseCursor], which can be used to create a [MouseCursor]
   ///    that is also a [MaterialStateProperty<MouseCursor>].
   final MouseCursor? mouseCursor;
 
@@ -187,7 +187,7 @@ class BeforeAfter extends StatefulWidget {
     properties.add(DoubleProperty('thumbHeight', thumbHeight));
     properties.add(DoubleProperty('thumbWidth', thumbWidth));
     properties.add(ColorProperty('thumbColor', thumbColor));
-    properties.add(DiagnosticsProperty<MaterialStateProperty<Color?>>(
+    properties.add(DiagnosticsProperty<WidgetStateProperty<Color?>>(
         'overlayColor', overlayColor));
     properties.add(DiagnosticsProperty<BoxDecoration>(
         'thumbDecoration', thumbDecoration,
@@ -444,22 +444,22 @@ class _BeforeAfterState extends State<BeforeAfter>
     }
 
     final states = {
-      if (!_enabled) MaterialState.disabled,
-      if (_focused) MaterialState.focused,
-      if (_hovering) MaterialState.hovered,
-      if (_dragging) MaterialState.dragged,
+      if (!_enabled) WidgetState.disabled,
+      if (_focused) WidgetState.focused,
+      if (_hovering) WidgetState.hovered,
+      if (_dragging) WidgetState.dragged,
     };
 
     final effectiveOverlayColor = widget.overlayColor?.resolve(states) ??
         widget.trackColor?.withOpacity(0.12) ??
-        MaterialStateProperty.resolveAs<Color?>(
+        WidgetStateProperty.resolveAs<Color?>(
             beforeAfterTheme.overlayColor, states) ??
-        MaterialStateProperty.resolveAs<Color>(defaults.overlayColor!, states);
+        WidgetStateProperty.resolveAs<Color>(defaults.overlayColor!, states);
 
     final effectiveMouseCursor =
-        MaterialStateProperty.resolveAs(widget.mouseCursor, states) ??
+        WidgetStateProperty.resolveAs(widget.mouseCursor, states) ??
             beforeAfterTheme.mouseCursor?.resolve(states) ??
-            MaterialStateMouseCursor.clickable.resolve(states);
+            WidgetStateMouseCursor.clickable.resolve(states);
 
     VoidCallback? handleDidGainAccessibilityFocus;
     switch (theme.platform) {
@@ -627,14 +627,14 @@ class _BeforeAfterDefaultsM3 extends BeforeAfterTheme {
 
   @override
   Color get overlayColor {
-    return MaterialStateColor.resolveWith((states) {
-      if (states.contains(MaterialState.hovered)) {
+    return WidgetStateColor.resolveWith((states) {
+      if (states.contains(WidgetState.hovered)) {
         return _colors.primary.withOpacity(0.08);
       }
-      if (states.contains(MaterialState.focused)) {
+      if (states.contains(WidgetState.focused)) {
         return _colors.primary.withOpacity(0.12);
       }
-      if (states.contains(MaterialState.dragged)) {
+      if (states.contains(WidgetState.dragged)) {
         return _colors.primary.withOpacity(0.12);
       }
 

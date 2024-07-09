@@ -56,7 +56,7 @@ class BeforeAfterTheme extends ThemeExtension<BeforeAfterTheme>
   /// {@macro flutter.material.slider.mouseCursor}
   ///
   /// If specified, overrides the default value of [Slider.mouseCursor].
-  final MaterialStateProperty<MouseCursor?>? mouseCursor;
+  final WidgetStateProperty<MouseCursor?>? mouseCursor;
 
   /// Returns the closest [BeforeAfterTheme] instance given the [context].
   static BeforeAfterTheme of(BuildContext context) {
@@ -72,7 +72,7 @@ class BeforeAfterTheme extends ThemeExtension<BeforeAfterTheme>
     double? thumbWidth,
     Color? overlayColor,
     BoxDecoration? thumbDecoration,
-    MaterialStateProperty<MouseCursor?>? mouseCursor,
+    WidgetStateProperty<MouseCursor?>? mouseCursor,
   }) {
     return BeforeAfterTheme(
       trackWidth: trackWidth ?? this.trackWidth,
@@ -139,7 +139,7 @@ class BeforeAfterTheme extends ThemeExtension<BeforeAfterTheme>
     properties.add(
       DiagnosticsProperty<BoxDecoration>('thumbDecoration', thumbDecoration),
     );
-    properties.add(DiagnosticsProperty<MaterialStateProperty<MouseCursor?>>(
+    properties.add(DiagnosticsProperty<WidgetStateProperty<MouseCursor?>>(
         'mouseCursor', mouseCursor));
   }
 }
