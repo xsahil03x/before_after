@@ -7,7 +7,7 @@ issue_tracker: https://github.com/xsahil03x/before_after/issues
 
 environment:
   sdk: ^3.4.0
-  flutter: ^3.22.0
+  flutter: ">=3.22.0"
 
 dependencies:
   flutter:
