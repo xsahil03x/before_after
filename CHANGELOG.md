@@ -1,4 +1,4 @@
-## Upcoming
+## 3.2.0
 
 - Increased the minimum Flutter version required to `3.22.0`.
 
