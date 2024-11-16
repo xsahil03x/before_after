@@ -40,7 +40,7 @@ enum SliderDirection {
 class BeforeAfter extends StatefulWidget {
   /// Creates a [BeforeAfter] widget with the specified before and after images.
   BeforeAfter({
-    Key? key,
+    super.key,
     required this.before,
     required this.after,
     this.height,
@@ -68,8 +68,7 @@ class BeforeAfter extends StatefulWidget {
           thumbColor == null || thumbDecoration == null,
           'Cannot provide both a thumbColor and a thumbDecoration\n'
           'To provide both, use "thumbDecoration: BoxDecoration(color: thumbColor)".',
-        ),
-        super(key: key);
+        );
 
   /// The widget to be displayed before the slider.
   final Widget before;
@@ -551,9 +550,9 @@ class _BeforeAfterState extends State<BeforeAfter>
 class Hide extends StatelessWidget {
   /// Creates a [Hide] widget with the specified child.
   const Hide({
-    Key? key,
+    super.key,
     required this.child,
-  }) : super(key: key);
+  });
 
   /// The child widget to be hidden.
   final Widget child;

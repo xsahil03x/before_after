@@ -34,7 +34,7 @@ class TwoDirectionalSlider extends StatefulWidget {
   ///
   /// The [child] parameter must not be null.
   const TwoDirectionalSlider({
-    Key? key,
+    super.key,
     required this.child,
     this.initialVerticalValue = 0.0,
     this.initialHorizontalValue = 0.0,
@@ -46,7 +46,7 @@ class TwoDirectionalSlider extends StatefulWidget {
     this.onHorizontalChanged,
     this.onHorizontalChangeEnd,
     this.horizontalDivisions,
-  }) : super(key: key);
+  });
 
   /// The child widget wrapped by the slider.
   final Widget child;
