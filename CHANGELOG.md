@@ -1,3 +1,7 @@
+## Upcoming
+
+- Increased the minimum Flutter version required to `3.22.0`.
+
 ## 3.1.0
 
 - Migrated deprecated `MaterialStateProperty` to `WidgetStateProperty`.
